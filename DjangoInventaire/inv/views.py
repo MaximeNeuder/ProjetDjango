@@ -45,6 +45,8 @@ class ItemUpdateView(UpdateView):
                 'place_occupe': self.request.user.member}
 
 class ItemDeleteView(DeleteView):
-    model = Item
-    template_name = "inv/item-delete.html"
+   model = Item
+    #form_class = ItemDeleteForm
+   template_name = "inv/item-delete.html"
+   success_url = "/"
 
