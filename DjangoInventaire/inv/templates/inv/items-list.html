@@ -1,0 +1,10 @@
+{% extends 'inv/base.html' %}
+
+{% block content %}
+<h3>Liste item</h3>
+{% for item in items %}
+    <h1>Nom : {{ item.name }}</h1>
+    <p>Description : {{ item.description }}</p>
+    <p>Place Requise {{ item.place_occupe }}</p>
+{% endfor %}
+{% endblock %}

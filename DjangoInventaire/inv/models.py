@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse_lazy
+
 
 # Create your models here.
 def validate_image(fieldfile_obj):
@@ -44,6 +46,9 @@ class Item(models.Model) :
 
     def __str__(self):
         return str(self.name)
+
+    def get_absolute_url(self):
+        return reverse_lazy('items:retrieve', kwargs={'pk': self.id})
 
 class Inventaire(models.Model) :
     name = models.CharField(

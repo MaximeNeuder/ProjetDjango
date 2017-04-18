@@ -26,7 +26,7 @@ items_urls = [
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', ItemListView.as_view(), name='item-list'),
+    url(r'^$', ItemListView.as_view(), name='items-list'),
     url(r'^items/', include(items_urls, namespace='items')),
 ]
 
