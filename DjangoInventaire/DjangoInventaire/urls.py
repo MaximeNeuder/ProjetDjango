@@ -14,7 +14,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from inv.views import ItemListView, ItemCreateView, ItemRetrieveView,ItemUpdateView, ItemDeleteView 
+from django.contrib.auth import views as auth_views
+from inv.views import ItemListView, ItemCreateView, ItemRetrieveView,ItemUpdateView, ItemDeleteView , ItemLoginView, ItemLogoutView
+from django.conf.urls import patterns, include, url
+
+from django.contrib.auth.decorators import login_required
 
 items_urls = [
     url(r'create/', ItemCreateView.as_view(), name='create'),
@@ -29,6 +33,7 @@ urlpatterns = [
     url(r'^$', ItemListView.as_view(), name='items-list'),
     url(r'^items/', include(items_urls, namespace='items')),
     url(r'^login/', ItemLoginView.as_view(), name='login'),
-    
+    url(r'^logout/$', ItemLogoutView.as_view(), name='logout'),
+   
 ]
 

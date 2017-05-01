@@ -15,3 +15,4 @@ class ItemDeleteForm(ModelForm) :
     class Meta:
         model = Item
         fields = ['name']
+
