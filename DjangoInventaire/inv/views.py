@@ -7,6 +7,7 @@ from django.views.generic import DetailView
 from django.views.generic import CreateView
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
+from django.views.generic import LoginView
 from inv.models import Item
 from inv.forms import ItemCreateForm
 from inv.forms import ItemUpdateForm
@@ -50,3 +51,6 @@ class ItemDeleteView(DeleteView):
    template_name = "inv/item-delete.html"
    success_url = "/"
 
+class ItemLoginview(LoginView):
+    model = Item
+    template_name = "inv/item_login.html"

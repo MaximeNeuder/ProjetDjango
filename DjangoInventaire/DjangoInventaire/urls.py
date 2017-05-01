@@ -21,12 +21,14 @@ items_urls = [
     url(r'^(?P<pk>\d+)/$', ItemRetrieveView.as_view(), name='retrieve'),
     url(r'^(?P<pk>\d+)/update/', ItemUpdateView.as_view(), name='update'),
     url(r'^(?P<pk>\d+)/delete/', ItemDeleteView.as_view(), name='delete'),
-    
+   
 ] 
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', ItemListView.as_view(), name='items-list'),
     url(r'^items/', include(items_urls, namespace='items')),
+    url(r'^login/', ItemLoginView.as_view(), name='login'),
+    
 ]
 
